@@ -92,8 +92,17 @@ inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
-" Set the colorscheme
-colorscheme solarized8
+" Set the colorscheme and Override the colors on LineNumbers and CursorLineNumber.
+augroup coloroverride
+	autocmd!
+        autocmd ColorScheme * highlight LineNr  ctermfg=Cyan guifg=#FFA500 " Override LineNr
+        autocmd ColorScheme * highlight CursorLineNr  ctermfg=Yellow guifg=#FF8C00 " Override CursorLineNr
+augroup END
+colorscheme molokai
+
+" Set font for gvim. Console vim uses whatever font the console/termial is
+" using. Vim cannot use a different font than the rest of the terminal.
+set guifont=Consolas:h10
 
 " Auto-Run this command everytime vim starts up.
 autocmd VimEnter * NERDTree
