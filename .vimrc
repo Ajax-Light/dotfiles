@@ -4,22 +4,24 @@
 call plug#begin('$HOME/vimfiles/plugged')
 
 " Declare the list of plugins
-Plug 'scrooloose/nerdtree'
-"Plug 'valloric/youcompleteme'
-"Plug 'neoclide/coc.nvim'
-Plug 'w0rp/ale'
-"Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
-Plug 'junegunn/fzf'
-Plug 'junegunn/seoul256.vim'
-Plug 'rafi/awesome-vim-colorschemes'
-Plug 'rainglow/vim'
-Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
-Plug 'mattn/emmet-vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'sheerun/vim-polyglot'
+Plug 'scrooloose/nerdtree'		" File Explorer
+" Plug 'valloric/youcompleteme'		" A code-completion engine for Vim.
+" Plug 'neoclide/coc.nvim'		" Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode.
+Plug 'w0rp/ale'				" ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking and semantic errors) in Vim asynchronously and fix files, with Language Server Protocol (LSP) support. 
+Plug 'jiangmiao/auto-pairs'		" Insert or delete brackets, parens, quotes in pair.
+" Plug 'tpope/vim-sensible'		" Defaults everyone can agree on.
+Plug 'tpope/vim-surround'		" Quoting/parenthesizing made simple. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
+Plug 'tpope/vim-commentary'		" Comment stuff out.
+Plug 'tpope/vim-fugitive'		" A Git wrapper so awesome, it should be illegal.
+Plug 'airblade/vim-gitgutter'		" A Vim plugin which shows git diff markers in the sign column and stages/previews/undoes hunks and partial hunks.
+Plug 'junegunn/fzf'			" fzf is a general-purpose command-line fuzzy finder.
+Plug 'rafi/awesome-vim-colorschemes'	" Collection of awesome color schemes for Neo/vim, merged for quick use.
+Plug 'rainglow/vim'			" 320+ color themes for VIM.
+Plug 'vim-airline/vim-airline'		" Lean & mean status/tabline for vim that's light as air.
+Plug 'vim-airline/vim-airline-themes'	" A collection of themes for vim-airline.
+Plug 'mattn/emmet-vim'			" emmet-vim is a vim plug-in which provides support for expanding abbreviations similar to emmet.
+" Plug 'terryma/vim-multiple-cursors'	" True Sublime Text style multiple selections for Vim. (It's hanging up alot on my system).
+Plug 'sheerun/vim-polyglot'		" A collection of language packs for Vim.
 
 " List ends here. Plugins become visible to vim after this call.
 call plug#end()
@@ -105,4 +107,4 @@ colorscheme molokai
 set guifont=Consolas:h10
 
 " Auto-Run this command everytime vim starts up.
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
