@@ -137,6 +137,8 @@ set backspace=indent,eol,start
 "   CUSTOM MAPPINGS  (LEADER, FN, &c)
 " =============================================================================
 
+" !!Comments on the same line as mappings are interpreted as part of the mapping!!
+
 " Unbind some useless/annoying default key bindings.
 nmap Q <Nop> 				" 'Q' in normal mode enters Ex mode. You almost never want this.
 map <C-a> <Nop>				" Reassigned below
@@ -165,7 +167,20 @@ nnoremap <C-h> :nohlsearch<CR>
 " Leader
 let mapleader = "\\"			" Leader is \.
 
-nnoremap <C-a> $			" Jump to start of line.
+" Jump to start of line.
+nnoremap <C-a> $
+
+" Jump to first non-blank character.
+nnoremap <C-x> ^
+
+" Paste from system clipboard.		
+nnoremap <Leader><C-v> "*p
+
+" Paste from system clipboard.
+inoremap <C-v> <C-r>+
+
+" Yank into system clipboard.
+vnoremap <C-c> "*y
 
 " =============================================================================
 "   PLUGIN CONFIG
