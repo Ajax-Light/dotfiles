@@ -43,43 +43,44 @@ endif
 " Declare the list of plugins
 
 " Search
-Plug 'junegunn/fzf'						" fzf is a general-purpose command-line fuzzy finder.
+Plug 'junegunn/fzf'						            " fzf is a general-purpose command-line fuzzy finder.
 
 " Movement
-Plug 'easymotion/vim-easymotion'		" Vim motions on speed!
+Plug 'easymotion/vim-easymotion'		            " Vim motions on speed!
 
 " Text Manipulation
-Plug 'jiangmiao/auto-pairs'				" Insert or delete brackets, parens, quotes in pair.
-Plug 'tpope/vim-surround'				" Quoting/parenthesizing made simple. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
-Plug 'tpope/vim-commentary'				" Comment stuff out.
-" Plug 'tpope/vim-sensible'				" Defaults everyone can agree on.
-" Plug 'terryma/vim-multiple-cursors'	" True Sublime Text style multiple selections for Vim. (It's hanging up alot on my system).
+Plug 'jiangmiao/auto-pairs'				            " Insert or delete brackets, parens, quotes in pair.
+Plug 'tpope/vim-surround'				            " Quoting/parenthesizing made simple. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
+Plug 'tpope/vim-commentary'				            " Comment stuff out.
+" Plug 'tpope/vim-sensible'				            " Defaults everyone can agree on.
+" Plug 'terryma/vim-multiple-cursors'	            " True Sublime Text style multiple selections for Vim. (It's hanging up alot on my system).
 
 " GUI enhancements
-Plug 'scrooloose/nerdtree'				" File Explorer
-Plug 'vim-airline/vim-airline'			" Lean & mean status/tabline for vim that's light as air.
-Plug 'vim-airline/vim-airline-themes'	" A collection of themes for vim-airline.
+Plug 'scrooloose/nerdtree'				            " File Explorer
+Plug 'vim-airline/vim-airline'			            " Lean & mean status/tabline for vim that's light as air.
+Plug 'vim-airline/vim-airline-themes'	            " A collection of themes for vim-airline.
+Plug 'ryanoasis/vim-devicons'			            " Adds filetype glyphs (icons) to various vim plugins.
 
 " Autocomplete
 
 " Semantic language support
-" Plug 'neoclide/coc.nvim'				" Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode.
-" Plug 'valloric/youcompleteme'			" A code-completion engine for Vim.
+" Plug 'neoclide/coc.nvim'				            " Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode.
+" Plug 'valloric/youcompleteme'			            " A code-completion engine for Vim.
 
 " Syntactic language support
-Plug 'w0rp/ale'							" ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking and semantic errors) in Vim asynchronously and fix files, with Language Server Protocol (LSP) support. 
-Plug 'sheerun/vim-polyglot'				" A collection of language packs for Vim.
-Plug 'nachumk/systemverilog.vim'		" Indent & syntax script for Verilog and SystemVerilog. 
-Plug 'mattn/emmet-vim'					" emmet-vim is a vim plug-in which provides support for expanding abbreviations similar to emmet.
-Plug 'alvan/vim-closetag'				" Auto close (X)HTML tags
+Plug 'w0rp/ale'							            " ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking and semantic errors) in Vim asynchronously and fix files, with Language Server Protocol (LSP) support. 
+Plug 'sheerun/vim-polyglot'				            " A collection of language packs for Vim.
+Plug 'nachumk/systemverilog.vim'		            " Indent & syntax script for Verilog and SystemVerilog. 
+Plug 'mattn/emmet-vim'					            " emmet-vim is a vim plug-in which provides support for expanding abbreviations similar to emmet.
+Plug 'alvan/vim-closetag'				            " Auto close (X)HTML tags
 
 " Git GUI
-Plug 'tpope/vim-fugitive'				" A Git wrapper so awesome, it should be illegal.
-Plug 'airblade/vim-gitgutter'			" A Vim plugin which shows git diff markers in the sign column and stages/previews/undoes hunks and partial hunks.
+Plug 'tpope/vim-fugitive'				            " A Git wrapper so awesome, it should be illegal.
+Plug 'airblade/vim-gitgutter'			            " A Vim plugin which shows git diff markers in the sign column and stages/previews/undoes hunks and partial hunks.
 
 " Colorschemes
-Plug 'rafi/awesome-vim-colorschemes'	" Collection of awesome color schemes for Neo/vim, merged for quick use.
-Plug 'rainglow/vim'						" 320+ color themes for VIM.
+Plug 'rafi/awesome-vim-colorschemes'	            " Collection of awesome color schemes for Neo/vim, merged for quick use.
+Plug 'rainglow/vim'						            " 320+ color themes for VIM.
 
 " List ends here. Plugins become visible to vim after this call.
 call plug#end()
@@ -100,9 +101,12 @@ augroup END
 " Set the colorscheme.
 colorscheme molokai
 
+" Set Encoding Scheme
+set encoding=utf-8
+
 " Set font for gvim. Console vim uses whatever font the console/termial is
 " using. Vim cannot use a different font than the rest of the terminal.
-set guifont=Consolas:h10
+set guifont=DroidSansMono\ NF:h10,IBM\ Plex\ Mono:h10,Hack:h10,Consolas:h10
 
 " UI Config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
