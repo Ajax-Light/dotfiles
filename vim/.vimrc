@@ -23,41 +23,21 @@ set nocompatible " VI compatible mode is disabled so that VIm things work
 
 " Comments in Vimscript start with a `"`.
 
-" Detect current OS
-if !exists("g:os")
-    if has("win64") || has("win32") || has("win16")
-        let g:os = "Windows"
-    else
-        let g:os = substitute(system('uname'), '\n', '', '')
-    endif
-endif
-
 
 " =============================================================================
 "   PLUGINS
 " =============================================================================
 
-" Automatically Install Vim-Plug to correct Directory depending on the OS.
-if g:os == "Linux"
-	if empty(glob('~/.vim/autoload/plug.vim'))
-  		silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  		autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-	endif
-elseif g:os == "Windows"
-	if empty(glob('~/vimfiles/autoload/plug.vim'))
-  		silent !curl -fLo ~/vimfiles/autoload/plug.vim --create-dirs
-    		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  		autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-	endif
+" $HOME is C:\Users\<username> in Windows and /home/<username> in Linux
+
+if empty(glob('$HOME/.vim/autoload/plug.vim'))
+  silent !curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Plugins will be downloaded under the specified directory depending on the OS.
-if g:os == "Linux"
-	call plug#begin('$HOME/.vim/plugged')
-elseif g:os == "Windows"
-	call plug#begin('$HOME/vimfiles/plugged')
-endif
+call plug#begin('$HOME/.vim/plugged')
+
 
 " Declare the list of plugins
 
@@ -89,7 +69,9 @@ Plug 'ryanoasis/vim-devicons'			            " Adds filetype glyphs (icons) to va
 " Syntactic language support
 Plug 'w0rp/ale'							            " ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking and semantic errors) in Vim asynchronously and fix files, with Language Server Protocol (LSP) support. 
 Plug 'sheerun/vim-polyglot'				            " A collection of language packs for Vim.
+Plug 'lervag/vimtex'								" A modern Vim and neovim filetype plugin for LaTeX files.
 Plug 'nachumk/systemverilog.vim'		            " Indent & syntax script for Verilog and SystemVerilog. 
+Plug 'Shirk/vim-gas'								" Advanced syntax highlighting for GNU As.
 Plug 'mattn/emmet-vim'					            " emmet-vim is a vim plug-in which provides support for expanding abbreviations similar to emmet.
 Plug 'alvan/vim-closetag'				            " Auto close (X)HTML tags
 
@@ -269,6 +251,15 @@ nnoremap <Leader>gf :diffget //2<CR>	" Display diff on left side.
 " vim-gitgutter
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <Leader>tgg :GitGutterToggle<CR>
+
+" vimtex
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:tex_flavor='latex'
+"let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+
 
 
 
