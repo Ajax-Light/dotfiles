@@ -222,6 +222,17 @@ inoremap <C-v> <C-r>+
 vnoremap <C-c> "*y
 
 " =============================================================================
+"   CUSTOM TEMPLATES
+" =============================================================================
+
+" ==== C++ Templates ====
+" Competitive Programming Template. Create cp.cpp in buffer.
+:autocmd BufNewFile cp.cpp 0r $HOME/vimfiles/templates/cp_template.cpp
+
+" ==== C Templates ====
+" ==== Python Templates ====
+
+" =============================================================================
 "   PLUGIN CONFIG
 " =============================================================================
 
