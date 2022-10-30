@@ -28,15 +28,15 @@ set nocompatible " VI compatible mode is disabled so that VIm things work
 "   PLUGINS
 " =============================================================================
 
-" $HOME is C:\Users\<username> in Windows and /home/<username> in Linux
+" $HOME(~) is C:\Users\<username> in Windows and /home/<username> in Linux
 
-if empty(glob('$HOME/.vim/autoload/plug.vim'))
-  silent !curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs
+if empty(glob('$HOME/vimfiles/autoload/plug.vim'))
+  silent !curl -fLo $HOME/vimfiles/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('$HOME/.vim/plugged')
+call plug#begin('$HOME/vimfiles/plugged')
 
 
 " Declare the list of plugins
@@ -177,8 +177,6 @@ set backspace=indent,eol,start
 
 " Unbind some useless/annoying default key bindings.
 nmap Q <Nop> 				" 'Q' in normal mode enters Ex mode. You almost never want this.
-map <C-a> <Nop>				" Reassigned below
-map <C-x> <Nop>				" Reassigned below
 
 " Try to prevent bad habits like using the arrow keys for movement. This is
 " not the only possible bad habit. For example, holding down the h/j/k/l keys
@@ -207,30 +205,25 @@ let mapleader = "\\"
 nmap <Space> <Leader>
 
 " Yank the whole document to system clipboard. 
-nnoremap <C-a> :%y*<CR> 
-
-" Jump to first non-blank character.
-nnoremap <C-x> ^
-
-" Paste from system clipboard.		
-nnoremap <Leader><C-v> "*p
-
-" Paste from system clipboard.
-inoremap <C-v> <C-r>+
+nnoremap <C-c> :%y*<CR> 
 
 " Yank into system clipboard.
 vnoremap <C-c> "*y
+
+" (Normal Mode) Paste from system clipboard. Use Ctrl-q for Visual Block Mode
+nnoremap <C-v> "*p
+
+" (Insert Mode) Paste from system clipboard.
+inoremap <C-v> <C-r>+
+
+" Switch Tabs in Gvim
+nnoremap <c-Tab> :tabn<CR>
 
 " =============================================================================
 "   CUSTOM TEMPLATES
 " =============================================================================
 
-" ==== C++ Templates ====
-" Competitive Programming Template. Create cp.cpp in buffer.
 :autocmd BufNewFile cp.cpp 0r $HOME/vimfiles/templates/cp_template.cpp
-
-" ==== C Templates ====
-" ==== Python Templates ====
 
 " =============================================================================
 "   PLUGIN CONFIG
