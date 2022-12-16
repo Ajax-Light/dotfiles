@@ -28,60 +28,69 @@ set nocompatible " VI compatible mode is disabled so that VIm things work
 "   PLUGINS
 " =============================================================================
 
-" $HOME(~) is C:\Users\<username> in Windows and /home/<username> in Linux
+" Set Plugin Install Directory depending on the OS
+" $HOME is C:\Users\<username> in Windows and /home/<username> in Linux
 
-if empty(glob('$HOME/vimfiles/autoload/plug.vim'))
-  silent !curl -fLo $HOME/vimfiles/autoload/plug.vim --create-dirs
+if has('win64' || 'win32')
+    let $MYPLUGDIRECTORY = $HOME . "/vimfiles"
+elseif has('unix')
+    let $MYPLUGDIRECTORY = $HOME . "/.vim"
+else
+    echo "Using neither Windows nor Unix!!. Unsupported config\n"
+endif
+
+if empty(glob('$MYPLUGDIRECTORY/autoload/plug.vim'))
+  silent !curl -fLo $MYPLUGDIRECTORY/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('$HOME/vimfiles/plugged')
+call plug#begin('$MYPLUGDIRECTORY/plugged')
 
 
 " Declare the list of plugins
 
 " Search
-Plug 'junegunn/fzf'						            " fzf is a general-purpose command-line fuzzy finder.
+Plug 'junegunn/fzf'                                 " fzf is a general-purpose command-line fuzzy finder.
 
 " Movement
-Plug 'easymotion/vim-easymotion'		            " Vim motions on speed!
+Plug 'easymotion/vim-easymotion'                    " Vim motions on speed!
 
 " Text Manipulation
-Plug 'jiangmiao/auto-pairs'				            " Insert or delete brackets, parens, quotes in pair.
-Plug 'tpope/vim-surround'				            " Quoting/parenthesizing made simple. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
-Plug 'tpope/vim-commentary'				            " Comment stuff out.
-" Plug 'tpope/vim-sensible'				            " Defaults everyone can agree on.
-" Plug 'terryma/vim-multiple-cursors'	            " True Sublime Text style multiple selections for Vim. (It's hanging up alot on my system).
+Plug 'jiangmiao/auto-pairs'                         " Insert or delete brackets, parens, quotes in pair.
+Plug 'tpope/vim-surround'                           " Quoting/parenthesizing made simple. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
+Plug 'tpope/vim-commentary'                         " Comment stuff out.
+" Plug 'tpope/vim-sensible'                         " Defaults everyone can agree on.
+" Plug 'terryma/vim-multiple-cursors'               " True Sublime Text style multiple selections for Vim. (It's hanging up alot on my system).
 
 " GUI enhancements
-Plug 'scrooloose/nerdtree'				            " File Explorer
-Plug 'vim-airline/vim-airline'			            " Lean & mean status/tabline for vim that's light as air.
-Plug 'vim-airline/vim-airline-themes'	            " A collection of themes for vim-airline.
-Plug 'ryanoasis/vim-devicons'			            " Adds filetype glyphs (icons) to various vim plugins.
+Plug 'scrooloose/nerdtree'                          " File Explorer
+Plug 'vim-airline/vim-airline'                      " Lean & mean status/tabline for vim that's light as air.
+Plug 'vim-airline/vim-airline-themes'               " A collection of themes for vim-airline.
+Plug 'ryanoasis/vim-devicons'                       " Adds filetype glyphs (icons) to various vim plugins.
 
 " Autocomplete
 
 " Semantic language support
-" Plug 'neoclide/coc.nvim'				            " Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode.
-" Plug 'valloric/youcompleteme'			            " A code-completion engine for Vim.
+" Plug 'neoclide/coc.nvim'                          " Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode.
+" Plug 'valloric/youcompleteme'                     " A code-completion engine for Vim.
 
 " Syntactic language support
-Plug 'w0rp/ale'							            " ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking and semantic errors) in Vim asynchronously and fix files, with Language Server Protocol (LSP) support. 
-Plug 'sheerun/vim-polyglot'				            " A collection of language packs for Vim.
-Plug 'lervag/vimtex'								" A modern Vim and neovim filetype plugin for LaTeX files.
-Plug 'nachumk/systemverilog.vim'		            " Indent & syntax script for Verilog and SystemVerilog. 
-Plug 'Shirk/vim-gas'								" Advanced syntax highlighting for GNU As.
-Plug 'mattn/emmet-vim'					            " emmet-vim is a vim plug-in which provides support for expanding abbreviations similar to emmet.
-Plug 'alvan/vim-closetag'				            " Auto close (X)HTML tags
+Plug 'w0rp/ale'                                     " ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking and semantic errors) in Vim asynchronously and fix files, with Language Server Protocol (LSP) support. 
+Plug 'sheerun/vim-polyglot'                         " A collection of language packs for Vim.
+Plug 'lervag/vimtex'                                " A modern Vim and neovim filetype plugin for LaTeX files.
+Plug 'nachumk/systemverilog.vim'                    " Indent & syntax script for Verilog and SystemVerilog. 
+Plug 'Shirk/vim-gas'                                " Advanced syntax highlighting for GNU As.
+Plug 'mattn/emmet-vim'                              " emmet-vim is a vim plug-in which provides support for expanding abbreviations similar to emmet.
+Plug 'alvan/vim-closetag'                           " Auto close (X)HTML tags
 
 " Git GUI
-Plug 'tpope/vim-fugitive'				            " A Git wrapper so awesome, it should be illegal.
-Plug 'airblade/vim-gitgutter'			            " A Vim plugin which shows git diff markers in the sign column and stages/previews/undoes hunks and partial hunks.
+Plug 'tpope/vim-fugitive'                           " A Git wrapper so awesome, it should be illegal.
+Plug 'airblade/vim-gitgutter'                       " A Vim plugin which shows git diff markers in the sign column and stages/previews/undoes hunks and partial hunks.
 
 " Colorschemes
-Plug 'rafi/awesome-vim-colorschemes'	            " Collection of awesome color schemes for Neo/vim, merged for quick use.
-Plug 'rainglow/vim'						            " 320+ color themes for VIM.
+Plug 'rafi/awesome-vim-colorschemes'                " Collection of awesome color schemes for Neo/vim, merged for quick use.
+Plug 'rainglow/vim'                                 " 320+ color themes for VIM.
 
 " List ends here. Plugins become visible to vim after this call.
 call plug#end()
@@ -94,7 +103,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Override the colors on LineNumbers and CursorLineNumber.
 augroup coloroverride
-	autocmd!
+    autocmd!
         autocmd ColorScheme * highlight LineNr  ctermfg=Cyan guifg=#FFA500          " Override LineNr
         autocmd ColorScheme * highlight CursorLineNr  ctermfg=Yellow guifg=#FF8C00  " Override CursorLineNr
 augroup END
@@ -111,43 +120,43 @@ set guifont=DroidSansMono\ NF:h10,IBM\ Plex\ Mono:h10,Hack:h10,Consolas:h10
 
 " UI Config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-syntax on						" Turn on syntax highlighting.
-set shortmess+=I				" Disable the default Vim startup message.
-set number						" Show line numbers.
-set relativenumber				" Show relative line numbers.
-set laststatus=2				" Always show the status line at the bottom, even if you only have one window open.
-set showcmd             		" Show command in bottom bar.
-set cursorline          		" Highlight current line.
-filetype indent on      		" Load filetype-specific indent files.
-filetype plugin on      		" Load filetype-specific plugin files.
+syntax on                         " Turn on syntax highlighting.
+set shortmess+=I                  " Disable the default Vim startup message.
+set number                        " Show line numbers.
+set relativenumber                " Show relative line numbers.
+set laststatus=2                  " Always show the status line at the bottom, even if you only have one window open.
+set showcmd                       " Show command in bottom bar.
+set cursorline                    " Highlight current line.
+filetype indent on                " Load filetype-specific indent files.
+filetype plugin on                " Load filetype-specific plugin files.
 
 " Wildmenu
-"-----------
-set wildmenu							" Visual autocomplete for command menu.
-set wildmode=list:longest,full			" When you do completion in the command line via tab, First tab completes to longest common command, on the Second tab wildmenu will show up with all the completions that were listed before.
-set wildignore+=*/.git/*,*/tmp/*,*.swp	" Ignore files for completion.
+""""""""""""
+set wildmenu                              " Visual autocomplete for command menu.
+set wildmode=list:longest,full            " When you do completion in the command line via tab, First tab completes to longest common command, on the Second tab wildmenu will show up with all the completions that were listed before.
+set wildignore+=*/.git/*,*/tmp/*,*.swp    " Ignore files for completion.
 
-set showmatch							" Highlight matching [{()}].
-set mouse+=a							" Enable mouse support.You should avoid relying on this too much, but it can sometimes be convenient.
-set noerrorbells visualbell t_vb=		" Disable audible bell because it's annoying.
+set showmatch                             " Highlight matching [{()}].
+set mouse+=a                              " Enable mouse support.You should avoid relying on this too much, but it can sometimes be convenient.
+set noerrorbells visualbell t_vb=         " Disable audible bell because it's annoying.
 
 " Spaces & Tabs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set tabstop=4       			" Number of visual spaces per TAB.
-set softtabstop=4   			" Number of spaces in tab when editing.
-set shiftwidth=4    			" Insert 4 spaces on a tab.
+set tabstop=4                   " Number of visual spaces per TAB.
+set softtabstop=4               " Number of spaces in tab when editing.
+set shiftwidth=4                " Insert 4 spaces on a tab.
 
 " Searching
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set ignorecase				" This setting makes search case-insensitive when all characters in the string
-set smartcase				" being searched are lowercase. However, the search becomes case-sensitive if
-							" it contains any capital letters. This makes searching more convenient.
-set incsearch				" Enable searching as you type, rather than waiting till you press enter.
-set hlsearch            	" Highlight matches.
+set ignorecase                  " This setting makes search case-insensitive when all characters in the string
+set smartcase                   " being searched are lowercase. However, the search becomes case-sensitive if
+                                " it contains any capital letters. This makes searching more convenient.
+set incsearch                   " Enable searching as you type, rather than waiting till you press enter.
+set hlsearch                    " Highlight matches.
 
 " Folding
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set foldenable          		" Enable folding.
+set foldenable                  " Enable folding.
 
 " Buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -176,7 +185,9 @@ set backspace=indent,eol,start
 " !!Comments on the same line as mappings are interpreted as part of the mapping!!
 
 " Unbind some useless/annoying default key bindings.
-nmap Q <Nop> 				" 'Q' in normal mode enters Ex mode. You almost never want this.
+
+" 'Q' in normal mode enters Ex mode. You almost never want this.
+nmap Q <Nop>
 
 " Try to prevent bad habits like using the arrow keys for movement. This is
 " not the only possible bad habit. For example, holding down the h/j/k/l keys
@@ -244,13 +255,13 @@ let g:AutoPairsShortcutToggle = '<Leader>tap'
 
 " vim-airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme='simple'		" Set the vim-airline theme.
+let g:airline_theme='simple'        " Set the vim-airline theme.
 
 " vim-fugitive
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <Leader>gs :G<CR>				" Display Git status.
-nnoremap <Leader>gj :diffget //3<CR>	" Display diff on right side.
-nnoremap <Leader>gf :diffget //2<CR>	" Display diff on left side.
+nnoremap <Leader>gs :G<CR>                " Display Git status.
+nnoremap <Leader>gj :diffget //3<CR>    " Display diff on right side.
+nnoremap <Leader>gf :diffget //2<CR>    " Display diff on left side.
 
 " vim-gitgutter
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
