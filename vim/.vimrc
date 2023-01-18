@@ -252,6 +252,23 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <C-p> :FZF<CR>
 
+" ALE
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Navigate errors quickly
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+"" Linting
+" ALE runs all available tools by default; If you have multiple linters
+" installed, it will run all of them. So either install only 1 linter or
+" select a subset of them to run here in config.
+
+"" Fixers
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\   'python': ['isort', 'black']
+\}
 
 " Auto-pairs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -260,6 +277,7 @@ let g:AutoPairsShortcutToggle = '<Leader>tap'
 " vim-airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline_theme='simple'        		" Set the vim-airline theme.
+let g:airline#extensions#ale#enabled = 1	" Integrate with ALE.
 
 " vim-fugitive
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
