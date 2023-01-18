@@ -31,9 +31,12 @@ set nocompatible " VI compatible mode is disabled so that VIm things work
 " Set Plugin Install Directory depending on the OS
 " $HOME is C:\Users\<username> in Windows and /home/<username> in Linux
 
-if has('win64' || 'win32')
-    let $MYPLUGDIRECTORY = $HOME . "/vimfiles"
-elseif has('unix')
+" Caveats: Define variable as $<var> to make it expand in the shell. Else will
+" be taken as is.
+
+if has("win32")
+    let $MYPLUGDIRECTORY = $HOME . "\\vimfiles"
+elseif has("unix")
     let $MYPLUGDIRECTORY = $HOME . "/.vim"
 else
     echo "Using neither Windows nor Unix!!. Unsupported config\n"
@@ -249,17 +252,18 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <C-p> :FZF<CR>
 
+
 " Auto-pairs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:AutoPairsShortcutToggle = '<Leader>tap'
 
 " vim-airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme='simple'        " Set the vim-airline theme.
+let g:airline_theme='simple'        		" Set the vim-airline theme.
 
 " vim-fugitive
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <Leader>gs :G<CR>                " Display Git status.
+nnoremap <Leader>gs :G<CR>              " Display Git status.
 nnoremap <Leader>gj :diffget //3<CR>    " Display diff on right side.
 nnoremap <Leader>gf :diffget //2<CR>    " Display diff on left side.
 
