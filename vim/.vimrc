@@ -192,6 +192,10 @@ set backspace=indent,eol,start
 " 'Q' in normal mode enters Ex mode. You almost never want this.
 nmap Q <Nop>
 
+" Window splitting
+nnoremap <C-w>- :split<cr>
+nnoremap <C-w>\| :vsplit<cr>
+
 " Try to prevent bad habits like using the arrow keys for movement. This is
 " not the only possible bad habit. For example, holding down the h/j/k/l keys
 " for movement, rather than using more efficient movement commands, is also a
