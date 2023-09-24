@@ -1,0 +1,8 @@
+{
+	// Integrate with ALE by using it to display diagnostics
+	"diagnostic.displayByAle": true,
+
+	// Fix issue where <Tab> selects the second suggestion instead of
+	// the first. See: https://github.com/neoclide/coc.nvim/issues/3981
+	"suggest.noselect": true
+}
