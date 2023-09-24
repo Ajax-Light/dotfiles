@@ -63,8 +63,6 @@ Plug 'easymotion/vim-easymotion'                    " Vim motions on speed!
 Plug 'jiangmiao/auto-pairs'                         " Insert or delete brackets, parens, quotes in pair.
 Plug 'tpope/vim-surround'                           " Quoting/parenthesizing made simple. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
 Plug 'tpope/vim-commentary'                         " Comment stuff out.
-" Plug 'tpope/vim-sensible'                         " Defaults everyone can agree on.
-" Plug 'terryma/vim-multiple-cursors'               " True Sublime Text style multiple selections for Vim. (It's hanging up alot on my system).
 
 " GUI enhancements
 Plug 'scrooloose/nerdtree'                          " File Explorer
