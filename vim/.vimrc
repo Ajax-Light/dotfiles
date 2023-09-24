@@ -75,11 +75,10 @@ Plug 'ryanoasis/vim-devicons'                       " Adds filetype glyphs (icon
 " Autocomplete
 
 " Semantic language support
-" Plug 'neoclide/coc.nvim'                          " Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode.
-" Plug 'valloric/youcompleteme'                     " A code-completion engine for Vim.
+Plug 'neoclide/coc.nvim', {'branch': 'release'}     " Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode.
 
 " Syntactic language support
-Plug 'w0rp/ale'                                     " ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking and semantic errors) in Vim asynchronously and fix files, with Language Server Protocol (LSP) support. 
+Plug 'dense-analysis/ale'                           " ALE (Asynchronous Lint Engine) is a plugin providing linting in Vim asynchronously, with LSP support.
 Plug 'sheerun/vim-polyglot'                         " A collection of language packs for Vim.
 Plug 'lervag/vimtex'                                " A modern Vim and neovim filetype plugin for LaTeX files.
 Plug 'nachumk/systemverilog.vim'                    " Indent & syntax script for Verilog and SystemVerilog. 
