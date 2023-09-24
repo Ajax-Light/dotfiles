@@ -288,6 +288,22 @@ let g:ale_fixers = {
 \   'python': ['isort', 'black']
 \}
 
+" CoC
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" remap <cr> to make it confirm completion
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+" Navigate the completion list
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+
+" Automatically install global extensions
+let g:coc_global_extensions = ['coc-json', 'coc-git']
+
+" Disable CoC startup warning about unsupported vim/nvim versions
+let g:coc_disable_startup_warning = 1
+
 " Auto-pairs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:AutoPairsShortcutToggle = '<Leader>tap'
