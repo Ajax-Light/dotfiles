@@ -188,7 +188,7 @@ nmap Q <Nop>
 
 " Window splitting
 nnoremap <C-w>- :split<cr>
-nnoremap <C-w>\| :vsplit<cr>
+nnoremap <C-w>[ :vsplit<cr>
 
 " Try to prevent bad habits like using the arrow keys for movement. This is
 " not the only possible bad habit. For example, holding down the h/j/k/l keys
