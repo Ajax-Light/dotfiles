@@ -130,15 +130,15 @@ set cursorline                    " Highlight current line.
 filetype indent on                " Load filetype-specific indent files.
 filetype plugin on                " Load filetype-specific plugin files.
 
+set showmatch                     " Highlight matching [{()}].
+set mouse+=a                      " Enable mouse support.You should avoid relying on this too much, but it can sometimes be convenient.
+set noerrorbells visualbell t_vb= " Disable audible bell because it's annoying.
+
 " Wildmenu
 """"""""""""
 set wildmenu                              " Visual autocomplete for command menu.
 set wildmode=list:longest,full            " When you do completion in the command line via tab, First tab completes to longest common command, on the Second tab wildmenu will show up with all the completions that were listed before.
 set wildignore+=*/.git/*,*/tmp/*,*.swp    " Ignore files for completion.
-
-set showmatch                             " Highlight matching [{()}].
-set mouse+=a                              " Enable mouse support.You should avoid relying on this too much, but it can sometimes be convenient.
-set noerrorbells visualbell t_vb=         " Disable audible bell because it's annoying.
 
 " Spaces & Tabs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -161,7 +161,7 @@ set foldenable                  " Enable folding.
 " Buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " By default, Vim doesn't let you hide a buffer (i.e. have a buffer that isn't
-" shown in any window) that has unsaved changes. This is to prevent you from "
+" shown in any window) that has unsaved changes. This is to prevent you from
 " forgetting about unsaved changes and then quitting e.g. via `:qa!`. We find
 " hidden buffers helpful enough to disable this protection. See `:help hidden`
 " for more information on this.
@@ -174,9 +174,6 @@ set hidden
 " This configuration makes backspace behave more reasonably, in that you can
 " backspace over anything.
 set backspace=indent,eol,start
-
-" Auto-Run this command everytime vim starts up.
-" autocmd VimEnter * NERDTree
 
 " =============================================================================
 "   CUSTOM MAPPINGS  (LEADER, FN, &c)
