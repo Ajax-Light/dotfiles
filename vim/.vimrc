@@ -228,8 +228,9 @@ nnoremap <C-v> "*p
 " (Insert Mode) Paste from system clipboard.
 inoremap <C-v> <C-r>+
 
-" Switch Tabs in Gvim
-nnoremap <c-Tab> :tabn<CR>
+" Switch Tabs
+nnoremap <Leader><Tab> :tabn<CR>
+nnoremap <Leader><S-Tab> :tabp<CR>
 
 " =============================================================================
 "   CUSTOM TEMPLATES
