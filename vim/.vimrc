@@ -289,8 +289,12 @@ let g:ale_fixers = {
 " CoC
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" remap <cr> to make it confirm completion
-inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+" Remap <CR> to make it confirm completion
+" Only remap if CoC is installed (by checking whether the plugin is in
+" runtimepath)
+if &runtimepath =~ 'coc.nvim'
+	inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+endif
 
 " Navigate the completion list
 inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
